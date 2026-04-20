@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://bhv1rejqn3ko4"]
+
+[ext_resource type="Script" uid="uid://b2mv7mm2w16yx" path="res://scripts/jugadorMovimiento.gd" id="1_xutah"]
+[ext_resource type="Texture2D" uid="uid://l1xrl3iuf30x" path="res://assets/mabel-caminando-r.png" id="2_ovq70"]
+[ext_resource type="Texture2D" uid="uid://li2rwcl2hure" path="res://assets/mabel-caminando-l.png" id="3_as36m"]
+[ext_resource type="Texture2D" uid="uid://b027kcwedlkmg" path="res://assets/mabel-parada.png" id="4_gjfif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mp40"]
+size = Vector2(20, 27)
+
+[sub_resource type="Animation" id="Animation_e85mw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ovq70")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gheh0"]
+resource_name = "caminarL"
+length = 0.73333335
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_as36m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_di65y"]
+resource_name = "caminarR"
+length = 0.8666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ovq70")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_n5bi1"]
+resource_name = "idle"
+length = 0.73333335
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_gjfif")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfbng"]
+_data = {
+&"RESET": SubResource("Animation_e85mw"),
+&"caminarL": SubResource("Animation_gheh0"),
+&"caminarR": SubResource("Animation_di65y"),
+&"idle": SubResource("Animation_n5bi1")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_d4beg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i2lk"]
+size = Vector2(88, 6)
+
+[node name="Node2D" type="Node2D" unique_id=1953179745]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=699534057]
+script = ExtResource("1_xutah")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1465079120]
+texture = ExtResource("2_ovq70")
+hframes = 2
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=451787637]
+zoom = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2003802636]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_4mp40")
+
+[node name="AnimationTree" type="AnimationPlayer" parent="CharacterBody2D" unique_id=862819319]
+libraries/ = SubResource("AnimationLibrary_dfbng")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=812766390]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=362156178]
+position = Vector2(0.99999905, 18)
+scale = Vector2(88, 6)
+mesh = SubResource("QuadMesh_d4beg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1378375288]
+position = Vector2(1, 18)
+shape = SubResource("RectangleShape2D_3i2lk")
