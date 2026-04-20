@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cxoenhhx24svw"]
+
+[ext_resource type="Texture2D" uid="uid://k13173s036xs" path="res://assets/fondoBosquee.jpg" id="1_aedf5"]
+[ext_resource type="PackedScene" uid="uid://bhv1rejqn3ko4" path="res://escenas/jugador.tscn" id="2_to6xu"]
+
+[node name="Node2D" type="Node2D" unique_id=207557240]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1141763514]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1662974827]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=2108868294]
+z_index = -1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_aedf5")
+
+[node name="Node2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1953179745 instance=ExtResource("2_to6xu")]
+position = Vector2(-197, -61)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=645820831]
