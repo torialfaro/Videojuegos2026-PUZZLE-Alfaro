@@ -1,6 +1,6 @@
 extends CharacterBody2D
 const SPEED = 200.0
-const JUMP_VELOCITY = -200.0
+const JUMP_VELOCITY = -400.0
 @onready var jugadorX=$AnimationPlayer
 @onready var textura=$Sprite2D
 func _physics_process(delta: float) -> void:

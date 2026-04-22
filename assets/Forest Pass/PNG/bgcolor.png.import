@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k13173s036xs"
-path="res://.godot/imported/fondoBosquee.jpg-f2fc7b63c33edcd7603e0882edf844ed.ctex"
+uid="uid://b3773qmrg7qbi"
+path="res://.godot/imported/bgcolor.png-cca925418500e1f47e5aa15a1928e149.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondoBosquee.jpg"
-dest_files=["res://.godot/imported/fondoBosquee.jpg-f2fc7b63c33edcd7603e0882edf844ed.ctex"]
+source_file="res://assets/Forest Pass/PNG/bgcolor.png"
+dest_files=["res://.godot/imported/bgcolor.png-cca925418500e1f47e5aa15a1928e149.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
