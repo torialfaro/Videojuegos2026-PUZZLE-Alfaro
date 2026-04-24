@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byum03xq2awar"
-path="res://.godot/imported/Tlayer1.png-4182aee2a75d39750789c853074bf719.ctex"
+uid="uid://wvdmrjp1ypuh"
+path="res://.godot/imported/fondo.png-8a4c8009d63abf39c4fc9abdbea6c634.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest Pass/PNG/Tlayer1.png"
-dest_files=["res://.godot/imported/Tlayer1.png-4182aee2a75d39750789c853074bf719.ctex"]
+source_file="res://assets/fondo.png"
+dest_files=["res://.godot/imported/fondo.png-8a4c8009d63abf39c4fc9abdbea6c634.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

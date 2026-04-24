@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l1xrl3iuf30x" path="res://assets/mabel-caminando-r.png" id="2_ovq70"]
 [ext_resource type="Texture2D" uid="uid://li2rwcl2hure" path="res://assets/mabel-caminando-l.png" id="3_as36m"]
 [ext_resource type="Texture2D" uid="uid://b027kcwedlkmg" path="res://assets/mabel-parada.png" id="4_gjfif"]
+[ext_resource type="Texture2D" uid="uid://c37145p426s1e" path="res://assets/mabel-trepar.png" id="5_ovq70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mp40"]
 size = Vector2(88.5, 105.5)
@@ -168,12 +169,54 @@ tracks/2/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_as36m"]
+resource_name = "trepar"
+length = 0.8333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.23),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ovq70")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.23),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dfbng"]
 _data = {
 &"RESET": SubResource("Animation_e85mw"),
 &"caminarL": SubResource("Animation_gheh0"),
 &"caminarR": SubResource("Animation_di65y"),
-&"idle": SubResource("Animation_n5bi1")
+&"idle": SubResource("Animation_n5bi1"),
+&"trepar": SubResource("Animation_as36m")
 }
 
 [node name="mabel" type="Node2D" unique_id=1953179745]
@@ -192,3 +235,8 @@ shape = SubResource("RectangleShape2D_4mp40")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=128269913]
 libraries/ = SubResource("AnimationLibrary_dfbng")
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=1218800645]
+target_position = Vector2(0, -10)
+collision_mask = 2
+hit_from_inside = true

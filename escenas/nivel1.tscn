@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://cxoenhhx24svw"]
 
 [ext_resource type="PackedScene" uid="uid://driq3lh20pvgg" path="res://escenas/bosque.tscn" id="1_aedf5"]
+[ext_resource type="Texture2D" uid="uid://8y53ji7en0qn" path="res://assets/fondoo.png" id="1_to6xu"]
 
 [node name="nivel1" type="Node2D" unique_id=1429900583]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=940670532]
+offset_right = 1285.0
+offset_bottom = 719.0
+texture = ExtResource("1_to6xu")
+stretch_mode = 1
 
 [node name="bosque" parent="." unique_id=420675409 instance=ExtResource("1_aedf5")]

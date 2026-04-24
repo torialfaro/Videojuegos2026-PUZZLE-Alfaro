@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgnv23nv3mk5d"
-path="res://.godot/imported/Textures&trees.png-5c5238b1da824597f9938851cb224af6.ctex"
+uid="uid://cs8fp7pbw2viy"
+path="res://.godot/imported/Forest_Tileset_x2.png-4470bbab2b9a2794e5785d48ada079fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest Pass/PNG/Textures&trees.png"
-dest_files=["res://.godot/imported/Textures&trees.png-5c5238b1da824597f9938851cb224af6.ctex"]
+source_file="res://assets/Forest_Tileset_x2.png"
+dest_files=["res://.godot/imported/Forest_Tileset_x2.png-4470bbab2b9a2794e5785d48ada079fa.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
