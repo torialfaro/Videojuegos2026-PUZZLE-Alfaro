@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dfjqkhlk5b7yu"]
+
+[ext_resource type="Texture2D" uid="uid://dys4725khly3p" path="res://assets/popUpFondo.png" id="1_450ut"]
+[ext_resource type="Script" uid="uid://l3perv3ygsbf" path="res://escenas/pop_up_perdiste.gd" id="1_psuxf"]
+[ext_resource type="FontFile" uid="uid://do0poptpikx4p" path="res://assets/publicpixel.ttf" id="2_psuxf"]
+[ext_resource type="Texture2D" uid="uid://cmumdvnbas8g2" path="res://assets/mabelM.png" id="3_1jyqx"]
+
+[sub_resource type="GDScript" id="GDScript_h2t2v"]
+
+[node name="popUpPerdiste" type="CanvasLayer" unique_id=1827021952]
+script = ExtResource("1_psuxf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2065339082]
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.5
+offset_left = -290.12
+offset_top = -219.0
+offset_right = 289.88
+offset_bottom = 263.0
+texture = ExtResource("1_450ut")
+script = SubResource("GDScript_h2t2v")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=198116010]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 248.0
+offset_right = 574.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(0.3647059, 0.11764706, 0.003921569, 1)
+theme_override_fonts/font = ExtResource("2_psuxf")
+theme_override_font_sizes/font_size = 20
+text = "Mabel ha caido desde 
+una gran altura : ("
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect" unique_id=288299964]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 75.0
+offset_right = 571.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_psuxf")
+theme_override_font_sizes/font_size = 30
+text = "Oh,oh..."
+horizontal_alignment = 1
+
+[node name="MabelM" type="Sprite2D" parent="." unique_id=1553685992]
+position = Vector2(650, 307)
+scale = Vector2(4.0625, 4)
+texture = ExtResource("3_1jyqx")

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c37145p426s1e" path="res://assets/mabel-trepar.png" id="5_ovq70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mp40"]
-size = Vector2(100, 86)
+size = Vector2(59, 100)
 
 [sub_resource type="Animation" id="Animation_e85mw"]
 length = 0.001
@@ -220,10 +220,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq70"]
-size = Vector2(86, 83)
+size = Vector2(60, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xutah"]
-size = Vector2(92, 82.5)
+size = Vector2(61, 100)
 
 [node name="mabel" type="Node2D" unique_id=1953179745]
 
@@ -236,7 +236,7 @@ texture = ExtResource("2_ovq70")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2003802636]
-position = Vector2(-8, -20)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_4mp40")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=128269913]
@@ -247,7 +247,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/detectarEscalera" unique_id=188650491]
-position = Vector2(-8, -18.5)
+position = Vector2(-2, 6)
 shape = SubResource("RectangleShape2D_ovq70")
 
 [node name="detectarPalanca" type="Area2D" parent="CharacterBody2D" unique_id=273955031]
@@ -255,7 +255,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/detectarPalanca" unique_id=92678112]
-position = Vector2(-8, -20.25)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_xutah")
 
 [connection signal="area_entered" from="CharacterBody2D/detectarEscalera" to="CharacterBody2D" method="_on_area_2d_area_entered"]

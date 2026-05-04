@@ -2,11 +2,10 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 const TREPAR_VELOCIDAD= 100.0
-const UMBRAL_CAIDA = 100.0
+const UMBRAL_CAIDA = 600.0
 @onready var jugadorX=$AnimationPlayer
 @onready var textura=$Sprite2D
 @onready var activarPalanca:Area2D = $detectarPalanca
-@onready var popup = get_node("/root/nivel2/popUp")
 
 var enEscalera:bool
 var trepar:bool
@@ -16,7 +15,8 @@ var palanca_cercana: Area2D = null
 var tieneDiario:bool=false
 var velocidad_caida: float = 0.0
 var cayendo: bool = false
-
+var estaMuerta: bool = false 
+var puedeSaltar:bool=false
 
 func _ready() -> void:
 	activarPalanca.area_entered.connect(_on_activarPalanca_entered)
@@ -35,7 +35,11 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	jugadorX.play("idle")
 	
 func _physics_process(delta: float) -> void:
+	if estaMuerta:
+		return
 	var enPiso=is_on_floor()
+	if enPiso:
+		puedeSaltar = true
 	direction= Input.get_axis("izquierda", "derecha")
 	if direction != 0.0:
 		ultima_direccion = direction 
@@ -55,8 +59,11 @@ func _physics_process(delta: float) -> void:
 			velocidad_caida = velocity.y
 			cayendo = true
 		velocity += get_gravity() * delta
-	if Input.is_action_just_pressed("saltar") and not trepar:
+		
+	if Input.is_action_just_pressed("saltar") and not trepar and puedeSaltar:
 		velocity.y = JUMP_VELOCITY
+		puedeSaltar = false 
+
 	if Input.is_action_just_pressed("accionarPal") and palanca_cercana != null:
 		palanca_cercana.accionar(direction)
 	if direction != 0:
@@ -71,12 +78,18 @@ func _physics_process(delta: float) -> void:
 	if enPiso and cayendo:
 		if velocidad_caida >= UMBRAL_CAIDA:
 			morir()
+			return 
 		cayendo = false
 		velocidad_caida = 0.0
 		
 	if not trepar:animations(direction)
 func morir() -> void:
+	estaMuerta = true 
+	velocity = Vector2.ZERO 
 	jugadorX.play("muerte")
+	await get_tree().create_timer(2.0).timeout
+	get_tree().current_scene.get_node("popUpPerdiste").mostrar()
+	get_tree().reload_current_scene()
 func animations(direction):
 		if is_on_floor():
 			if direction==0:
@@ -86,4 +99,6 @@ func animations(direction):
 func agarrar(objeto: String) -> void:
 	if objeto == "diario":
 		tieneDiario = true
-		popup.mostrar()
+		get_tree().current_scene.get_node("popUp").mostrar()
+		await get_tree().create_timer(2.0).timeout
+		get_tree().change_scene_to_file("res://escenas/nivel2.tscn")

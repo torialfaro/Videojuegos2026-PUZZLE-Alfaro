@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c0hgekhsvjvfk" path="res://assets/fondoNivel.png" id="3_wtc5o"]
 [ext_resource type="PackedScene" uid="uid://d00ivi8h6jq7q" path="res://escenas/bosqueNivel2.tscn" id="4_8acea"]
 [ext_resource type="Texture2D" uid="uid://dys4725khly3p" path="res://assets/popUpFondo.png" id="5_y8yvi"]
+[ext_resource type="PackedScene" uid="uid://dfjqkhlk5b7yu" path="res://escenas/pop_up_perdiste.tscn" id="7_wtc5o"]
 
 [sub_resource type="GDScript" id="GDScript_tmy65"]
 script/source = "extends CanvasLayer
@@ -25,7 +26,36 @@ size = Vector2(14, 713)
 [node name="nivel2" type="Node2D" unique_id=499746184]
 script = ExtResource("1_1883r")
 
+[node name="popUp" type="CanvasLayer" parent="." unique_id=391554267]
+visible = false
+script = SubResource("GDScript_tmy65")
+
+[node name="TextureRect" type="TextureRect" parent="popUp" unique_id=835917980]
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.5
+offset_left = -290.12
+offset_top = -219.0
+offset_right = 289.88
+offset_bottom = 263.0
+texture = ExtResource("5_y8yvi")
+script = SubResource("GDScript_vh1yy")
+
+[node name="Label" type="Label" parent="popUp/TextureRect" unique_id=1476633919]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 176.0
+offset_right = 549.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1883r")
+theme_override_font_sizes/font_size = 30
+text = "Diario conseguido"
+
 [node name="popUpInicio" type="CanvasLayer" parent="." unique_id=2054112107]
+visible = false
 script = SubResource("GDScript_tmy65")
 
 [node name="TextureRect" type="TextureRect" parent="popUpInicio" unique_id=1389110179]
@@ -62,34 +92,6 @@ texture = ExtResource("3_wtc5o")
 
 [node name="bosqueNivel2" parent="." unique_id=37161110 instance=ExtResource("4_8acea")]
 
-[node name="popUp" type="CanvasLayer" parent="." unique_id=391554267]
-visible = false
-script = SubResource("GDScript_tmy65")
-
-[node name="TextureRect" type="TextureRect" parent="popUp" unique_id=835917980]
-anchors_preset = -1
-anchor_left = 0.504
-anchor_top = 0.5
-anchor_right = 0.504
-anchor_bottom = 0.5
-offset_left = -290.12
-offset_top = -219.0
-offset_right = 289.88
-offset_bottom = 263.0
-texture = ExtResource("5_y8yvi")
-script = SubResource("GDScript_vh1yy")
-
-[node name="Label" type="Label" parent="popUp/TextureRect" unique_id=1476633919]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 176.0
-offset_right = 549.0
-offset_bottom = 206.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_1883r")
-theme_override_font_sizes/font_size = 30
-text = "Diario conseguido"
-
 [node name="paredes" type="StaticBody2D" parent="." unique_id=1046169833]
 position = Vector2(644, 351)
 
@@ -100,3 +102,6 @@ shape = SubResource("RectangleShape2D_4xigu")
 [node name="der" type="CollisionShape2D" parent="paredes" unique_id=365016887]
 position = Vector2(633, 4)
 shape = SubResource("RectangleShape2D_4xigu")
+
+[node name="popUpPerdiste" parent="." unique_id=1827021952 instance=ExtResource("7_wtc5o")]
+visible = false

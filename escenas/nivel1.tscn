@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://driq3lh20pvgg" path="res://escenas/bosque.tscn" id="1_aedf5"]
 [ext_resource type="Script" uid="uid://3wk54d8uylj3" path="res://scripts/nivel_1.gd" id="1_h4jqx"]
 [ext_resource type="Texture2D" uid="uid://deef00kjmnmo0" path="res://assets/Captura desde 2026-05-04 10-09-25.png" id="2_jjnph"]
-[ext_resource type="Texture2D" uid="uid://dys4725khly3p" path="res://assets/popUpFondo.png" id="3_5geto"]
 [ext_resource type="FontFile" uid="uid://do0poptpikx4p" path="res://assets/publicpixel.ttf" id="4_h4jqx"]
+[ext_resource type="PackedScene" uid="uid://crua7hodgchat" path="res://escenas/popUp.tscn" id="4_jjnph"]
+[ext_resource type="PackedScene" uid="uid://dfjqkhlk5b7yu" path="res://escenas/pop_up_perdiste.tscn" id="7_joimm"]
 
 [sub_resource type="GDScript" id="GDScript_h4jqx"]
 script/source = "extends CanvasLayer
@@ -25,7 +26,10 @@ size = Vector2(14, 713)
 [node name="nivel1" type="Node2D" unique_id=1429900583]
 script = ExtResource("1_h4jqx")
 
+[node name="popUp" parent="." unique_id=1662573818 instance=ExtResource("4_jjnph")]
+
 [node name="popUpInicio" type="CanvasLayer" parent="." unique_id=589033139]
+visible = false
 script = SubResource("GDScript_h4jqx")
 
 [node name="TextureRect" type="TextureRect" parent="popUpInicio" unique_id=89238266]
@@ -61,34 +65,6 @@ texture = ExtResource("1_5geto")
 
 [node name="bosque" parent="fondo" unique_id=420675409 instance=ExtResource("1_aedf5")]
 
-[node name="popUp" type="CanvasLayer" parent="." unique_id=1480912405]
-visible = false
-script = SubResource("GDScript_h4jqx")
-
-[node name="TextureRect" type="TextureRect" parent="popUp" unique_id=1441973981]
-anchors_preset = -1
-anchor_left = 0.504
-anchor_top = 0.5
-anchor_right = 0.504
-anchor_bottom = 0.5
-offset_left = -290.12
-offset_top = -219.0
-offset_right = 289.88
-offset_bottom = 263.0
-texture = ExtResource("3_5geto")
-script = SubResource("GDScript_jjnph")
-
-[node name="Label" type="Label" parent="popUp/TextureRect" unique_id=657636432]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 176.0
-offset_right = 549.0
-offset_bottom = 206.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_h4jqx")
-theme_override_font_sizes/font_size = 30
-text = "Diario conseguido"
-
 [node name="paredes" type="StaticBody2D" parent="." unique_id=943081421]
 position = Vector2(644, 351)
 
@@ -99,3 +75,6 @@ shape = SubResource("RectangleShape2D_h4jqx")
 [node name="der" type="CollisionShape2D" parent="paredes" unique_id=1414235821]
 position = Vector2(633, 4)
 shape = SubResource("RectangleShape2D_h4jqx")
+
+[node name="popUpPerdiste" parent="." unique_id=1827021952 instance=ExtResource("7_joimm")]
+visible = false
