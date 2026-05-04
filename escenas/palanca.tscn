@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dbjd7rgi61iof"]
 
 [ext_resource type="Script" uid="uid://c5j1jlu4y4v7m" path="res://scripts/palancaFuncionamiento.gd" id="1_h8xrq"]
-[ext_resource type="Texture2D" uid="uid://cefnjn6ytufuu" path="res://assets/palancaArriba.png" id="2_h8xrq"]
+[ext_resource type="Texture2D" uid="uid://cefnjn6ytufuu" path="res://assets/palancaArbolArriba.png" id="2_h8xrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vb1u5"]
 size = Vector2(37.916668, 41.083336)
 
-[node name="palanca" type="Area2D" unique_id=1754495070]
+[node name="palancaArbol" type="Area2D" unique_id=1754495070]
 collision_layer = 8
 script = ExtResource("1_h8xrq")
 trigger = 1

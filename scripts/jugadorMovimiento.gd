@@ -1,11 +1,12 @@
 extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
-const TREPAR_VELOCIDAD = 100.0
+const TREPAR_VELOCIDAD= 100.0
+const UMBRAL_CAIDA = 100.0
 @onready var jugadorX=$AnimationPlayer
 @onready var textura=$Sprite2D
 @onready var activarPalanca:Area2D = $detectarPalanca
-@onready var popup = get_node("/root/nivel1/CanvasLayer")
+@onready var popup = get_node("/root/nivel2/popUp")
 
 var enEscalera:bool
 var trepar:bool
@@ -13,6 +14,8 @@ var direction:float=0.0
 var ultima_direccion: float = 1.0
 var palanca_cercana: Area2D = null
 var tieneDiario:bool=false
+var velocidad_caida: float = 0.0
+var cayendo: bool = false
 
 
 func _ready() -> void:
@@ -48,6 +51,9 @@ func _physics_process(delta: float) -> void:
 			if direccion_y!=0:jugadorX.play("trepar")
 			else: jugadorX.play("idle")
 	elif not enPiso:
+		if velocity.y > 0:
+			velocidad_caida = velocity.y
+			cayendo = true
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("saltar") and not trepar:
 		velocity.y = JUMP_VELOCITY
@@ -61,7 +67,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+	
+	if enPiso and cayendo:
+		if velocidad_caida >= UMBRAL_CAIDA:
+			morir()
+		cayendo = false
+		velocidad_caida = 0.0
+		
 	if not trepar:animations(direction)
+func morir() -> void:
+	jugadorX.play("muerte")
 func animations(direction):
 		if is_on_floor():
 			if direction==0:

@@ -2,8 +2,8 @@ extends Area2D
 @export var trigger: int = 0
 signal palancaActivada
 const estado = {
-	"desactivada": preload("res://assets/palancaArbolArriba.png"),
-	"activada": preload("res://assets/palancaArbolAbajo.png") }
+	"desactivada": preload("res://assets/palancaArriba.png"),
+	"activada": preload("res://assets/palancaAbajo.png") }
 var direccion: int = 1
 @onready var cosasAccionables: Node2D = get_parent().get_node("accionables")
 

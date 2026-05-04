@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1gq3got5jt0j"
-path="res://.godot/imported/palancaAbajo.png-a9786d13cfc800e35f8942a36ff379f0.ctex"
+uid="uid://br4y2pi750o6d"
+path="res://.godot/imported/labelPixel.png-fd26f454d79faf3619f0bc7b0d4afd89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/palancaAbajo.png"
-dest_files=["res://.godot/imported/palancaAbajo.png-a9786d13cfc800e35f8942a36ff379f0.ctex"]
+source_file="res://assets/labelPixel.png"
+dest_files=["res://.godot/imported/labelPixel.png-fd26f454d79faf3619f0bc7b0d4afd89.ctex"]
 
 [params]
 

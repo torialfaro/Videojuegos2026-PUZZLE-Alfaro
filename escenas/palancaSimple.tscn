@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://j6q7ae2yljac"]
+
+[ext_resource type="Script" uid="uid://cd8ymf0px53i6" path="res://scripts/palancaSimple.gd" id="1_fewte"]
+[ext_resource type="Texture2D" uid="uid://cb21r8yfahmkv" path="res://assets/palancaArriba.png" id="2_x3rpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv3ep"]
+size = Vector2(8, 11)
+
+[node name="palancaSimple" type="Area2D" unique_id=996830899]
+scale = Vector2(4, 4)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_fewte")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2086132402]
+texture = ExtResource("2_x3rpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=667282663]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jv3ep")

@@ -1,28 +1,71 @@
 [gd_scene format=3 uid="uid://cxoenhhx24svw"]
 
+[ext_resource type="Texture2D" uid="uid://c0hgekhsvjvfk" path="res://assets/fondoNivel.png" id="1_5geto"]
 [ext_resource type="PackedScene" uid="uid://driq3lh20pvgg" path="res://escenas/bosque.tscn" id="1_aedf5"]
-[ext_resource type="Texture2D" uid="uid://bu66oj1rr7lqf" path="res://assets/fondoPixel.png" id="1_to6xu"]
+[ext_resource type="Script" uid="uid://3wk54d8uylj3" path="res://scripts/nivel_1.gd" id="1_h4jqx"]
+[ext_resource type="Texture2D" uid="uid://deef00kjmnmo0" path="res://assets/Captura desde 2026-05-04 10-09-25.png" id="2_jjnph"]
 [ext_resource type="Texture2D" uid="uid://dys4725khly3p" path="res://assets/popUpFondo.png" id="3_5geto"]
-[ext_resource type="Script" uid="uid://bt58v3i065d2" path="res://scripts/canvas_layer.gd" id="3_h4jqx"]
 [ext_resource type="FontFile" uid="uid://do0poptpikx4p" path="res://assets/publicpixel.ttf" id="4_h4jqx"]
+
+[sub_resource type="GDScript" id="GDScript_h4jqx"]
+script/source = "extends CanvasLayer
+@onready var label: Label = $TextureRect/Label
+
+func mostrar() -> void:
+	visible = true
+	await get_tree().create_timer(1.0).timeout
+	visible = false
+"
 
 [sub_resource type="GDScript" id="GDScript_jjnph"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4jqx"]
+size = Vector2(14, 713)
+
 [node name="nivel1" type="Node2D" unique_id=1429900583]
+script = ExtResource("1_h4jqx")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=940670532]
-offset_right = 1285.0
-offset_bottom = 719.0
-texture = ExtResource("1_to6xu")
-stretch_mode = 1
+[node name="popUpInicio" type="CanvasLayer" parent="." unique_id=589033139]
+script = SubResource("GDScript_h4jqx")
 
-[node name="bosque" parent="TextureRect" unique_id=420675409 instance=ExtResource("1_aedf5")]
+[node name="TextureRect" type="TextureRect" parent="popUpInicio" unique_id=89238266]
+anchors_preset = -1
+anchor_left = 0.597
+anchor_top = 0.54800004
+anchor_right = 0.597
+anchor_bottom = 0.54800004
+offset_left = -769.16003
+offset_top = -399.56003
+offset_right = 699.83997
+offset_bottom = 322.43997
+texture = ExtResource("2_jjnph")
+expand_mode = 2
+script = SubResource("GDScript_jjnph")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1480912405]
+[node name="Label" type="Label" parent="popUpInicio/TextureRect" unique_id=534399117]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 371.0
+offset_right = 890.0
+offset_bottom = 411.0
+theme_override_colors/font_color = Color(0, 0.2509804, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("4_h4jqx")
+theme_override_font_sizes/font_size = 30
+text = "NIVEL 1"
+
+[node name="fondo" type="TextureRect" parent="." unique_id=940670532]
+offset_right = 1272.0
+offset_bottom = 699.0
+texture = ExtResource("1_5geto")
+
+[node name="bosque" parent="fondo" unique_id=420675409 instance=ExtResource("1_aedf5")]
+
+[node name="popUp" type="CanvasLayer" parent="." unique_id=1480912405]
 visible = false
-script = ExtResource("3_h4jqx")
+script = SubResource("GDScript_h4jqx")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1441973981]
+[node name="TextureRect" type="TextureRect" parent="popUp" unique_id=1441973981]
 anchors_preset = -1
 anchor_left = 0.504
 anchor_top = 0.5
@@ -35,7 +78,7 @@ offset_bottom = 263.0
 texture = ExtResource("3_5geto")
 script = SubResource("GDScript_jjnph")
 
-[node name="Label" type="Label" parent="CanvasLayer/TextureRect" unique_id=657636432]
+[node name="Label" type="Label" parent="popUp/TextureRect" unique_id=657636432]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 176.0
@@ -45,3 +88,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_h4jqx")
 theme_override_font_sizes/font_size = 30
 text = "Diario conseguido"
+
+[node name="paredes" type="StaticBody2D" parent="." unique_id=943081421]
+position = Vector2(644, 351)
+
+[node name="izq" type="CollisionShape2D" parent="paredes" unique_id=1804545007]
+position = Vector2(-634, 2.5)
+shape = SubResource("RectangleShape2D_h4jqx")
+
+[node name="der" type="CollisionShape2D" parent="paredes" unique_id=1414235821]
+position = Vector2(633, 4)
+shape = SubResource("RectangleShape2D_h4jqx")

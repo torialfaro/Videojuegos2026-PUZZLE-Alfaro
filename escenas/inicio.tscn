@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://2jhm6crqbqbr"]
+
+[ext_resource type="Texture2D" uid="uid://br4y2pi750o6d" path="res://assets/labelPixel.png" id="1_23hle"]
+[ext_resource type="Script" uid="uid://bx2c3l0u0kkxt" path="res://scripts/jugarBoton.gd" id="2_tspds"]
+[ext_resource type="FontFile" uid="uid://do0poptpikx4p" path="res://assets/publicpixel.ttf" id="3_3abqo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hswmi"]
+load_path = "res://.godot/imported/fondoInicio.jpeg-f3c5e6a3bac08fac29bbb9bea00f6a08.ctex"
+
+[node name="inicio" type="Node2D" unique_id=602715593]
+
+[node name="fondo" type="TextureRect" parent="." unique_id=102051255]
+offset_left = -122.0
+offset_top = -6.0
+offset_right = 1293.0
+offset_bottom = 723.0
+texture = SubResource("CompressedTexture2D_hswmi")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="jugar" type="TextureRect" parent="fondo" unique_id=1333129833]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37800002
+anchor_top = 0.70600003
+anchor_right = 0.37800002
+anchor_bottom = 0.70600003
+offset_left = -174.54724
+offset_top = -163.32
+offset_right = 175.45276
+offset_bottom = 186.68
+mouse_filter = 0
+texture = ExtResource("1_23hle")
+script = ExtResource("2_tspds")
+
+[node name="Label" type="Label" parent="fondo/jugar" unique_id=787187358]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35700002
+anchor_top = 0.47400004
+anchor_right = 0.643
+anchor_bottom = 0.55700004
+offset_left = 0.049987793
+offset_top = 0.099990845
+offset_right = -0.05000305
+offset_bottom = 0.049987793
+theme_override_colors/font_color = Color(0.37659252, 0.14021832, 0.010953331, 1)
+theme_override_fonts/font = ExtResource("3_3abqo")
+theme_override_font_sizes/font_size = 20
+text = "JUGAR"
+
+[node name="controles" type="TextureRect" parent="fondo" unique_id=312403980]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65500003
+anchor_top = 0.71800005
+anchor_right = 0.65500003
+anchor_bottom = 0.71800005
+offset_left = -174.47205
+offset_top = -174.96002
+offset_right = 175.52795
+offset_bottom = 175.03998
+mouse_filter = 0
+texture = ExtResource("1_23hle")
+
+[node name="Label2" type="Label" parent="fondo/controles" unique_id=453907660]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35700002
+anchor_top = 0.47400004
+anchor_right = 0.643
+anchor_bottom = 0.55700004
+offset_left = -34.950005
+offset_top = 3.0999908
+offset_right = 44.949997
+offset_bottom = 3.0499878
+theme_override_colors/font_color = Color(0.37659252, 0.14021832, 0.010953331, 1)
+theme_override_fonts/font = ExtResource("3_3abqo")
+theme_override_font_sizes/font_size = 20
+text = "CONTROLES"
+
+[connection signal="gui_input" from="fondo/jugar" to="fondo/jugar" method="_on_gui_input"]
