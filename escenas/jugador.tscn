@@ -179,6 +179,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq70"]
 size = Vector2(86, 104)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xutah"]
+size = Vector2(84, 103)
+
 [node name="mabel" type="Node2D" unique_id=1953179745]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=699534057]
@@ -196,13 +199,22 @@ shape = SubResource("RectangleShape2D_4mp40")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=128269913]
 libraries/ = SubResource("AnimationLibrary_dfbng")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=563902549]
+[node name="detectarEscalera" type="Area2D" parent="CharacterBody2D" unique_id=563902549]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=188650491]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/detectarEscalera" unique_id=188650491]
 position = Vector2(-4, 2)
 shape = SubResource("RectangleShape2D_ovq70")
 
-[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]
+[node name="detectarPalanca" type="Area2D" parent="CharacterBody2D" unique_id=273955031]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/detectarPalanca" unique_id=92678112]
+position = Vector2(-4, 1.5)
+shape = SubResource("RectangleShape2D_xutah")
+
+[connection signal="area_entered" from="CharacterBody2D/detectarEscalera" to="CharacterBody2D" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/detectarEscalera" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/detectarEscalera" to="CharacterBody2D" method="_on_area_2d_body_exited"]

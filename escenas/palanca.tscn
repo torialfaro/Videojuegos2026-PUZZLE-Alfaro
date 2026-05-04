@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dbjd7rgi61iof"]
+
+[ext_resource type="Script" uid="uid://c5j1jlu4y4v7m" path="res://scripts/palancaFuncionamiento.gd" id="1_h8xrq"]
+[ext_resource type="Texture2D" uid="uid://cefnjn6ytufuu" path="res://assets/palancaArriba.png" id="2_h8xrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb1u5"]
+size = Vector2(37.916668, 41.083336)
+
+[node name="palanca" type="Area2D" unique_id=1754495070]
+collision_layer = 8
+script = ExtResource("1_h8xrq")
+trigger = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982161274]
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("2_h8xrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352074978]
+position = Vector2(6, 127.00001)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_vb1u5")

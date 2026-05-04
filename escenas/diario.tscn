@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0ibqadl34kgk"]
+
+[ext_resource type="Script" uid="uid://wtnti44lmbrt" path="res://scripts/diario.gd" id="1_08s0y"]
+[ext_resource type="Texture2D" uid="uid://c4pqbjwt2x02j" path="res://assets/diario.png" id="2_nevk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c78bi"]
+size = Vector2(27, 35)
+
+[node name="diario" type="Area2D" unique_id=1466195507]
+script = ExtResource("1_08s0y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=362503532]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_nevk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=997818188]
+position = Vector2(0.5, -4.5)
+shape = SubResource("RectangleShape2D_c78bi")
