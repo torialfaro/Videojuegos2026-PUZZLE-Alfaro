@@ -84,11 +84,12 @@ func _physics_process(delta: float) -> void:
 		
 	if not trepar:animations(direction)
 func morir() -> void:
-	estaMuerta = true 
-	velocity = Vector2.ZERO 
+	estaMuerta = true
+	velocity = Vector2.ZERO
 	jugadorX.play("muerte")
 	await get_tree().create_timer(2.0).timeout
 	get_tree().current_scene.get_node("popUpPerdiste").mostrar()
+	await get_tree().create_timer(2.0).timeout 
 	get_tree().reload_current_scene()
 func animations(direction):
 		if is_on_floor():
@@ -101,4 +102,9 @@ func agarrar(objeto: String) -> void:
 		tieneDiario = true
 		get_tree().current_scene.get_node("popUp").mostrar()
 		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://escenas/nivel2.tscn")
+		var escena_actual = get_tree().current_scene.scene_file_path
+		if escena_actual == "res://escenas/nivel1.tscn":
+			get_tree().change_scene_to_file("res://escenas/nivel2.tscn")
+		elif escena_actual == "res://escenas/nivel2.tscn":
+			get_tree().change_scene_to_file("res://escenas/menu.tscn")
+			
