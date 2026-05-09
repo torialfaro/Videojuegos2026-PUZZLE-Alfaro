@@ -7,6 +7,8 @@ const UMBRAL_CAIDA = 600.0
 @onready var textura=$Sprite2D
 @onready var activarPalanca:Area2D = $detectarPalanca
 
+
+#CORRECCION: No es que esté mal que haya variables que luego no se utilizan, pero nos complica un poco el trabajo después. La idea es que mirar las propiedades de la clase ya nos de un pequeño panorama de lo que hace, de qué se encarga.
 var enEscalera:bool
 var trepar:bool
 var direction:float=0.0
@@ -19,12 +21,14 @@ var estaMuerta: bool = false
 var puedeSaltar:bool=false
 
 func _ready() -> void:
+	#CORRECCION: Por qué no hiciste lo mismo que con detectarEscalera donde configuraste por inspector???? sus
 	activarPalanca.area_entered.connect(_on_activarPalanca_entered)
 	activarPalanca.area_exited.connect(_on_activarPalanca_exited)
 func _on_activarPalanca_entered(area: Area2D) -> void:
 	if area.has_method("accionar"):
 		palanca_cercana = area
 func _on_activarPalanca_exited(area: Area2D) -> void:
+	#CORRECCION: Esta solución no me disgusta, activar y desactivar qué tenemos cerca. Lo que pasa aquí es que a medida que el juego avance vamos a empezar a tener problemas, qué pasa si hay un cofre, o bill está cerca, vamos a tener cofre_cercano y bill_cercano? En seguida se nos va de las manos. Esto se suele usar para que la palanca muestre sobre sí misma el botón a apretar por ejemplo, pero se manejaría desde la palanca. En este caso luego de presionar el botón me fijaría si estoy cerca de una palanca y listo.
 	if area == palanca_cercana:
 		palanca_cercana = null
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -98,6 +102,7 @@ func animations(direction):
 			else:
 				jugadorX.play("caminarR")
 func agarrar(objeto: String) -> void:
+	#CORRECCION: De momento Mabel no agarra otra cosa, así que es medio innecesario fijarse si es un diario. Además, si configurás bien los layers y mask de colisión ni siquiera va a llegar aquí una colisión que no sea con un diario, por lo tanto no necesitaríamos tampoco hacer esta pregunta.
 	if objeto == "diario":
 		tieneDiario = true
 		get_tree().current_scene.get_node("popUp").mostrar()
